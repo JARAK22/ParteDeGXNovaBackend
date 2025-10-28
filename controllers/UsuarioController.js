@@ -131,6 +131,10 @@ const UsuarioController = {
     } catch (error) {
       res.status(500).json({ error: 'Error al eliminar usuario' });
     }
+  },
+
+  async prueba(req, res) {
+    res.json({ mensaje: 'prueba' })
   }
 };
 
