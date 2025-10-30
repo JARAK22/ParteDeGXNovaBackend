@@ -73,9 +73,9 @@ const UsuarioController = {
   async getUsuarios(req, res) {
     try {
       const usuarios = await Usuario.findAll();
-      res.status(200).json(usuarios);
+      return res.status(200).json(usuarios);
     } catch (error) {
-      res.status(500).json({ error: 'Error al obtener usuarios' });
+      return res.status(500).json({ error: 'Error al obtener usuarios' });
     }
   },
 
@@ -84,9 +84,9 @@ const UsuarioController = {
     try {
       const { id } = req.params;
       const usuario = await Usuario.findByPk(id);
-      res.status(200).json(usuario);
+      return res.status(200).json(usuario);
     } catch (error) {
-      res.status(500).json({ error: 'Error al obtener usuario' });
+      return res.status(500).json({ error: 'Error al obtener usuario' });
     }
   },
 
@@ -95,9 +95,9 @@ const UsuarioController = {
     try {
       const { email } = req.params;
       const usuario = await Usuario.findOne({ where: { email } });
-      res.status(200).json(usuario);
+      return res.status(200).json(usuario);
     } catch (error) {
-      res.status(500).json({ error: 'Error al obtener usuario' });
+      return res.status(500).json({ error: 'Error al obtener usuario' });
     }
   },
 
@@ -106,9 +106,9 @@ const UsuarioController = {
     try {
       const { nombre, apellido, email, password } = req.body;
       const usuario = await Usuario.create({ nombre, apellido, email, password });
-      res.status(201).json({ message: 'Usuario creado', usuario });
+      return res.status(201).json({ message: 'Usuario creado', usuario });
     } catch (error) {
-      res.status(500).json({ error: 'Error al crear usuario' });
+      return res.status(500).json({ error: 'Error al crear usuario' });
     }
   },
 
@@ -121,9 +121,9 @@ const UsuarioController = {
         { nombre, apellido, email, password },
         { where: { id } }
       );
-      res.status(200).json(usuario);
+      return res.status(200).json(usuario);
     } catch (error) {
-      res.status(500).json({ error: 'Error al actualizar usuario' });
+      return res.status(500).json({ error: 'Error al actualizar usuario' });
     }
   },
 
@@ -132,14 +132,14 @@ const UsuarioController = {
     try {
       const { id } = req.params;
       const usuario = await Usuario.destroy({ where: { id } });
-      res.status(200).json(usuario);
+      return res.status(200).json(usuario);
     } catch (error) {
-      res.status(500).json({ error: 'Error al eliminar usuario' });
+      return res.status(500).json({ error: 'Error al eliminar usuario' });
     }
   },
 
   async prueba(req, res) {
-    res.json({ mensaje: 'prueba' })
+    return res.json({ mensaje: 'prueba' })
   }
 };
 
