@@ -1,5 +1,7 @@
 const { Usuario } = require('../models');
 
+// Estructura de un controlador con funciones
+
 /*export const getUsuarios = async (req, res) => {
   try {
     const usuarios = await Usuario.findAll();
@@ -62,6 +64,9 @@ export const eliminarUsuario = async (req, res) => {
     res.status(500).json({ error: 'Error al eliminar usuario' });
   }
 };*/
+
+
+// Estructura de un controlador con clases
 
 const UsuarioController = {
     // Obtener todos los usuarios
